@@ -16,7 +16,7 @@ def captivity_concat(objs: Iterable[pd.DataFrame], axis, *args, **kwargs):
             from captivity import flag_issue
 
             flag_issue(
-                "Column-wise concatenation would result in duplicate column labels for column: {problematic_columns}"
+                f"Column-wise concatenation would result in duplicate column labels for column: {problematic_columns}"
             )
     return pd_concat(objs, axis=axis, *args, **kwargs)
 
