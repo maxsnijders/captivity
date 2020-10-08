@@ -48,6 +48,10 @@ In addition, captivity currently supports:
 * **sensible checks on merges (no more `_x` and `_y` columns - except when `suffixes=("_x", "_y")` is passed explicitly)**
 * turning `CaptivityExceptions` into `CaptivityWarnings` - useful when first using `captivity` in an existing codebase
 
+## Does it also catch \<Issue X\> ?
+`captivity` is a labor not of love, but of annoying bugs I find in my own code that are caused by careless default arguments in pandas. 
+If you find one in yours that you'd like captivity to patch, please raise an issue on GitHub or contact me directly (or better yet, implement
+it and put out a PR!)
 
  ## Running the tests
  
