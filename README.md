@@ -34,7 +34,7 @@ print(a_b)
 Woa! That should definitely not be allowed by default. With `captivity`, it's not.
 
 ```python
-...
+import captivity
 a_b = pd.concat([a, b], axis=1)
 
 >> Traceback (most recent call last):
