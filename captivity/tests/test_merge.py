@@ -25,3 +25,17 @@ def test_merge_with_duplicate_columns():
     pd.DataFrame({"a": [1], "b": [2]}).merge(
         pd.DataFrame({"a": [0, 2], "b": [3, 4]}), on=["a", "b"],
     )
+
+
+def test_merge_duplicate_columns_suffixes():
+    import captivity
+    import pandas as pd
+
+    with pytest.raises(captivity.CaptivityException):
+        pd.DataFrame({"a": [1], "b": [2]}).merge(
+            pd.DataFrame({"a": [0, 2], "b": [3, 4]}), on="a",
+        )
+
+    pd.DataFrame({"a": [1], "b": [2]}).merge(
+        pd.DataFrame({"a": [0, 2], "b": [3, 4]}), on="a", suffixes=("_x", "_y")
+    )
