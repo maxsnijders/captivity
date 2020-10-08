@@ -33,8 +33,6 @@ Woa! That should definitely not be allowed by default. With `captivity`, it's no
 
 ```python
 ...
-
-import captivity
 a_b = pd.concat([a, b], axis=1)
 
 >> Traceback (most recent call last):
@@ -44,8 +42,8 @@ a_b = pd.concat([a, b], axis=1)
 ```
 
 In addition, captivity currently supports:
-* sensible checks on vertical concatenation (column sets must match)
-* sensible checks on merges (no more `_x` and `_y` columns - but exceptions!)
+* **sensible checks on vertical concatenation (column sets must match)**
+* **sensible checks on merges (no more `_x` and `_y` columns - but exceptions!)**
 * turning `CaptivityExceptions` into `CaptivityWarnings` - useful when first using `captivity` in an existing codebase
 
 
