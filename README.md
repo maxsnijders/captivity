@@ -3,6 +3,8 @@
 The only purpose of `captivity` is to support you in writing better `pandas` code by caging in
 some of its worst excentricities. `pandas` is great, but `import captivity; import pandas as pd` is better.
 
+The philosophy behind `captivity` is that there's nothing worse than silent failure. If you didn't ask pandas to automagically correct your arguments, it shouldn't.
+
 ## Example
 
 To find a comprehensive set of examples, check out the `captivity/tests/` directory. To pique your interest, consider the following:
@@ -43,7 +45,7 @@ a_b = pd.concat([a, b], axis=1)
 
 In addition, captivity currently supports:
 * **sensible checks on vertical concatenation (column sets must match)**
-* **sensible checks on merges (no more `_x` and `_y` columns - but exceptions!)**
+* **sensible checks on merges (no more `_x` and `_y` columns - except when `suffixes=("_x", "_y")` is passed explicitly)**
 * turning `CaptivityExceptions` into `CaptivityWarnings` - useful when first using `captivity` in an existing codebase
 
 
