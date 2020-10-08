@@ -1,4 +1,3 @@
-
 def patch_default(function, position, name, new_default):
     def patched(*args, **kwargs):
         print("Getting invoked")
