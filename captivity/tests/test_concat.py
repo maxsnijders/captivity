@@ -11,11 +11,6 @@ def test_concat_with_duplicate_columns():
             axis=1,
         )
 
-    pd.concat(
-        [pd.DataFrame({"a": [1], "b": [2]}), pd.DataFrame({"c": [0], "b": [3]}),],
-        axis=0,
-    )
-
 
 def test_concat_mismatching_columns():
     import captivity

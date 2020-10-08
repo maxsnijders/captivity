@@ -1,11 +1,25 @@
 import pandas as pd
 from typing import Iterable
+import functools
 import itertools
 
 pd_concat = pd.concat
 
 
+@functools.wraps(pd_concat)
 def captivity_concat(objs: Iterable[pd.DataFrame], axis, *args, **kwargs):
+    """
+
+    Wraps pd.concat, preventing:
+    * horizontal concatenations with duplicate column names
+    * vertical concatenation with non-complete column name overlap
+
+    :param objs:
+    :param axis:
+    :param args:
+    :param kwargs:
+    :return:
+    """
     if axis == 1 or axis == "columns":
         problematic_columns = set(
             c

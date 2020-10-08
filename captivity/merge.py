@@ -1,13 +1,26 @@
 import pandas as pd
 from typing import Iterable
-
+import functools
 
 pd_merge = pd.merge
 
 
+@functools.wraps(pd_merge)
 def captivity_merge(
     left: pd.DataFrame, right: pd.DataFrame, on: Iterable[str], *args, **kwargs
 ):
+    """
+
+    Wraps pd.merge, preventing:
+    * joins where non-join columns have duplicate names
+
+    :param left:
+    :param right:
+    :param on:
+    :param args:
+    :param kwargs:
+    :return:
+    """
     from captivity import flag_issue
 
     problematic_columns = (
