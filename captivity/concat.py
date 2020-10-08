@@ -18,6 +18,17 @@ def captivity_concat(objs: Iterable[pd.DataFrame], axis, *args, **kwargs):
             flag_issue(
                 f"Column-wise concatenation would result in duplicate column labels for column: {problematic_columns}"
             )
+    else:
+        problematic_columns = set.union(*[set(df.columns) for df in objs]).difference(
+            set.intersection(*[set(df.columns) for df in objs])
+        )
+        if len(problematic_columns) > 0:
+            from captivity import flag_issue
+
+            flag_issue(
+                f"Row-wise concatenation with dataframes with columns that are not present everywhere: {problematic_columns}"
+            )
+
     return pd_concat(objs, axis=axis, *args, **kwargs)
 
 
